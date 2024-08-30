@@ -1,0 +1,26 @@
+SAT-T1_42840306:
+    data_format: csv
+    data_regen: true
+    data_root: ../../../data/
+    dataset_id: SAT-T1
+    feature_cols:
+    -   active: true
+        dtype: float
+        name: [duration, kilometer_section, number_injured, number_death, number_car,
+            number_lanes, number_passable_lanes, number_lanes_ccupancy, rate_occupancy]
+        type: numeric
+    -   active: true
+        dtype: float
+        name: [weekend, time_period, unit, high_speed_ID, sections, begin, end, rear-end,
+            roll_over, crash_central_guardrail, crash_dege_guardrail, flat_tires,
+            hit_pedestrians, scratch, lane_emergency, left_lane_first, left_lane_second,
+            left_lane_third, left_lane_forth, right_lane, weather, is_tunnel, is_bridge,
+            is_special_point, is_emergency_lane_ccupancy, Car, car_passenger, truck,
+            Van, crane, Semi-trailers, vehicle_sport_utility, van_Business, ambulance,
+            pickup_trucks, fuel_tankers]
+        type: categorical
+    label_col: {dtype: float, name: is_second_accident}
+    min_categr_count: 1
+    source_data: ../../../data/SAT-T1/source.csv
+    test_size: 0.1
+    valid_size: 0.2

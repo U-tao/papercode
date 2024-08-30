@@ -1,0 +1,71 @@
+base_config: ./config/
+base_expid: MMoE_test
+dataset_id: SAT-T1
+
+tuner_space:
+    model_mix               : [True]
+    model_list              : [['MLP','L']]  # 'MLP', 'LightGBM' 'Xgboost'
+    learning_rate           : [
+        0.05, 0.01, 0.005, 0.001
+    ]
+    embedding_regularizer   : [0]
+    net_regularizer         : [0]
+    batch_size              : [
+        10, 16, 32, 64, 128
+    ]
+    batch_norm              : [
+        False, True
+    ]
+
+    num_experts             : [3]
+    embedding_dim           : [
+        10, 16, 32, 64, 128
+    ]
+    use_field_gate          : [
+        [True, True, True],
+        [True, True, False],
+        [True, False, True],
+        [False, True, True],
+        [True, False, False],
+        [False,True,  False],
+        [False, False, True],
+        [False, False, False],
+    ]
+    expert_hidden_units     : [
+        [64], [128], [256], [400], [512], [800],
+        [64, 64], [64, 128], [64, 256], [64, 400], [64, 512], [64, 800],
+        [128, 64], [128, 128], [128, 256], [128, 400], [128, 500], [128, 512], [128, 800],
+        [256, 64], [256, 128], [256, 256], [256, 400], [256, 500], [256, 512], [256, 800],
+        [400, 64], [400, 128], [400, 256], [400, 400], [400, 500], [400, 512], [400, 800],
+        [500, 64], [500, 128], [500, 256], [500, 400], [500, 500], [500, 512], [500, 800],
+        [512, 64], [512, 128], [512, 256], [512, 400], [512, 500], [512, 512], [512, 800],
+        [800, 64], [800, 128], [800, 256], [800, 400], [800, 500], [800, 512], [800, 800],
+    ]
+    net_dropout             : [
+        [0.1],
+        [0.2],
+        [0.3],
+    ]
+    hidden_activations      : [relu]
+
+    num_tasks               : [1]
+    gate_embedding_dim      : [[10]]
+    gate_use_field_gate     : [False]
+    gate_hidden_units       : [[128, 64]]
+    gate_net_dropout        : [[0.2]]
+    gate_hidden_activations : [relu]
+
+    tower_hidden_units      : [[[128, 64]]]
+    tower_net_dropout      : [[0]]
+    tower_hidden_activations: [[relu]]
+
+    residual_type           : [concat]
+    epochs                  : [100]
+    shuffle                 : [True]
+    seed                    : [2024]
+    monitor                 : ['AUC': 1]
+    monitor_mode            : ['max']
+    embedding_share         : [False]
+
+    optim                   : [True]
+    resample                : ['balance'] # 'over' 'lower' 'balance'

@@ -1,0 +1,164 @@
+Base:
+    model_root              : './checkpoints/'
+    num_workers             : 0
+    verbose                 : 1
+    early_stop_patience     : 3
+    pickle_feature_encoder  : True
+    save_best_only          : True
+    eval_steps              : null
+    debug_mode              : False
+    group_id                : null
+    use_features            : null
+    feature_specs           : null
+    feature_config          : null
+
+MMoE_test:
+    model                   : MMoE
+    dataset_id              : JAT-T4-2-1
+    loss                    : ['binary_crossentropy']
+    metrics                 : ['Sensitivity', 'Specificity', 'AUC']
+    task                    : ['binary_classification']
+    optimizer               : adam
+
+    model_list              : ['MLP', 'L']  # 'MLP', 'L', 'LightGBM' 'Xgboost'
+    learning_rate           : 0.001
+    embedding_regularizer   : 0
+    net_regularizer         : 0
+    batch_size              : 10
+    batch_norm              : True
+
+    resample                : 'balance'   # 'over' 'lower' 'balance'
+    num_experts             : 3
+    embedding_dim           : 10
+    use_field_gate          : True      # [True, True, False]
+    expert_hidden_units     : [400, 500]
+        # [512, 512]       # JAT-T3
+        # [64, 64]         # JAT-T2
+        # [400, 500]       # SAT-T1-balance
+        # [400, 512]       # SAT-T1-lower
+        # [400]            # SAT-T1-over
+        # [400, 400]       # JAT-T4-balance
+        # [64, 64]         # JAT-T4-2-1 balance
+        # [512, 800]       # JAT-T4-2-1 lower
+        # [800]            # JAT-T4-2-1 over
+        # [64, 256]        # JAT-T4-2-2 balance
+        # [500, 800]       # JAT-T4-2-2 lower
+        # [128, 256]       # JAT-T4-2-2 over
+    net_dropout             : [0.1] # [[0.2], [0.1], [0.1]]
+    hidden_activations      : relu
+
+    num_tasks               : 1
+    gate_embedding_dim      : [10]
+    gate_use_field_gate     : False
+    gate_hidden_units       : [128, 64]
+    gate_net_dropout        : [0.2]
+    gate_hidden_activations : relu
+
+    tower_hidden_units      : [[128, 64]]
+    tower_net_dropout       : [0]
+    tower_hidden_activations: [relu]
+
+    residual_type           : concat
+    epochs                  : 100
+    shuffle                 : True
+    seed                    : 2024
+    monitor                 : {'AUC': 1}
+    monitor_mode            : 'max'
+    embedding_share         : False
+
+    optim                   : True
+    shap                    : 0.001
+    result_record           : []
+
+MMoE_test_SAT:
+    model                   : MMoE
+    dataset_id              : JAT
+    loss                    : ['binary_crossentropy']
+    metrics                 : ['logloss', 'accuracy', 'precision', 'recall','f1_score', 'Sensitivity', 'Specificity', 'AUC']
+    task                    : ['binary_classification']
+    optimizer               : adam
+
+    model_mix               : True
+    model_list              : ['MLP']  # 'MLP', 'LightGBM' 'Xgboost'
+    learning_rate           : 0.001
+    embedding_regularizer   : 0
+    net_regularizer         : 0
+    batch_size              : 10
+    batch_norm              : False
+
+    num_experts             : 3
+    embedding_dim           : [10, 10, 10]
+    use_field_gate          : [True, True, True]
+    expert_hidden_units     : [[500], [400], [500, 500]]
+    net_dropout             : [[0.2], [0.1], [0.1]]
+    hidden_activations      : [relu, relu, relu]
+
+    num_tasks               : 1
+    gate_embedding_dim      : [10]
+    gate_use_field_gate     : [False]
+    gate_hidden_units       : [[128, 64]]
+    gate_net_dropout        : [[0.2]]
+    gate_hidden_activations : [relu]
+
+    tower_hidden_units      : [[128, 64]]
+    tower_net_dropout       : [0]
+    tower_hidden_activations: [relu]
+
+    residual_type           : concat
+    epochs                  : 100
+    shuffle                 : True
+    seed                    : 2024
+    monitor                 : {'AUC': 1}
+    monitor_mode            : 'max'
+    embedding_share         : False
+
+    optim                   : True
+    resample                : 'balance' # 'over' 'lower' 'balance'
+
+MMoE_test_JAT:
+    model                   : MMoE
+    dataset_id              : JAT
+    loss                    : ['binary_crossentropy']
+    metrics                 : ['logloss', 'accuracy', 'precision', 'recall','f1_score', 'Sensitivity', 'Specificity', 'AUC']
+    task                    : ['binary_classification']
+    optimizer               : adam
+
+    model_mix               : True
+    model_list              : ['MLP', 'L']  # 'MLP', 'LightGBM' 'Xgboost'
+    learning_rate           : 0.001
+    embedding_regularizer   : 0
+    net_regularizer         : 0
+    batch_size              : 10
+    batch_norm              : True
+
+    num_experts             : 3
+    embedding_dim           : [10, 10, 10]
+    use_field_gate          : [True, True, True]
+    expert_hidden_units     : [[512, 500], [512, 500], [512, 500]]
+                                # [[512, 500], [512, 500], [512, 500]],
+                                # [[128, 128], [128, 128], [128, 128]],
+                                # [[400, 128], [400, 128], [400, 128]]
+    net_dropout             : [[0.2], [0.1], [0.1]]
+    hidden_activations      : [relu, relu, relu]
+
+    num_tasks               : 1
+    gate_embedding_dim      : [10]
+    gate_use_field_gate     : [False]
+    gate_hidden_units       : [[128, 64]]
+    gate_net_dropout        : [[0.2]]
+    gate_hidden_activations : [relu]
+
+    tower_hidden_units      : [[128, 64]]
+    tower_net_dropout       : [0]
+    tower_hidden_activations: [relu]
+
+    residual_type           : concat
+    epochs                  : 100
+    shuffle                 : True
+    seed                    : 2024
+    monitor                 : {'AUC': 1}
+    monitor_mode            : 'max'
+    embedding_share         : False
+
+    optim                   : True
+    resample                : 'balance' # 'over' 'lower' 'balance'

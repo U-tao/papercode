@@ -1,0 +1,171 @@
+2024-08-30 12:55:26,413 P100392 INFO Params: {
+    "batch_norm": "True",
+    "batch_size": "10",
+    "data_format": "csv",
+    "data_regen": "True",
+    "data_root": "../../data/",
+    "dataset_id": "JAT-T4-2-1",
+    "debug_mode": "False",
+    "early_stop_patience": "3",
+    "embedding_dim": "10",
+    "embedding_regularizer": "0",
+    "embedding_share": "False",
+    "epochs": "100",
+    "eval_steps": "None",
+    "expert_hidden_units": "[400, 500]",
+    "feature_cols": "[{'active': True, 'dtype': 'float', 'name': ['lane_width', 'inner_shoulder_width', 'outer_shoulder_width', 'correlation', 'Dc', 'Ds', 'Do', 'MCnt', 'MSpd', 'MOcc', 'StdCnt', 'StdSpd', 'StdOcc', 'scoVarCc', 'scoVarCs', 'scoVarCo', 'MLCnt', 'MLSpd', 'MLOcc', 'LstdCnt', 'LstdSpd', 'LstdOcc'], 'type': 'numeric'}, {'active': True, 'dtype': 'float', 'name': ['visibility', 'weather', 'truckcol', 'ramp', 'roadsurf', 'lighting'], 'type': 'categorical'}]",
+    "feature_config": "None",
+    "feature_specs": "None",
+    "gate_embedding_dim": "[10]",
+    "gate_hidden_activations": "relu",
+    "gate_hidden_units": "[128, 64]",
+    "gate_net_dropout": "[0.2]",
+    "gate_use_field_gate": "False",
+    "gpu": "0",
+    "group_id": "None",
+    "hidden_activations": "relu",
+    "label_col": "{'dtype': 'float', 'name': 'is_accident'}",
+    "learning_rate": "0.001",
+    "loss": "['binary_crossentropy']",
+    "metrics": "['Sensitivity', 'Specificity', 'AUC']",
+    "min_categr_count": "1",
+    "model": "MMoE",
+    "model_id": "MMoE_test",
+    "model_list": "['MLP', 'L']",
+    "model_root": "./checkpoints/",
+    "monitor": "{'AUC': 1}",
+    "monitor_mode": "max",
+    "net_dropout": "[0.1]",
+    "net_regularizer": "0",
+    "num_experts": "3",
+    "num_tasks": "1",
+    "num_workers": "0",
+    "optim": "True",
+    "optimizer": "adam",
+    "pickle_feature_encoder": "True",
+    "resample": "balance",
+    "residual_type": "concat",
+    "result_record": "[]",
+    "save_best_only": "True",
+    "seed": "2024",
+    "shap": "0.0",
+    "shuffle": "True",
+    "source_data": "../../data/JAT-T4-2-1/source.csv",
+    "task": "['binary_classification']",
+    "test_size": "0.1",
+    "tower_hidden_activations": "['relu']",
+    "tower_hidden_units": "[[128, 64]]",
+    "tower_net_dropout": "[0]",
+    "use_features": "None",
+    "use_field_gate": "True",
+    "valid_size": "0.2",
+    "verbose": "1"
+}
+2024-08-30 12:55:26,427 P100392 INFO Set up feature processor...
+2024-08-30 12:55:26,448 P100392 INFO Reading file: ../../data/JAT-T4-2-1/source.csv
+2024-08-30 12:55:26,568 P100392 INFO Preprocess feature columns...
+2024-08-30 12:55:26,587 P100392 INFO Fit feature processor...
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'lane_width', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'inner_shoulder_width', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'outer_shoulder_width', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'correlation', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'Dc', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'Ds', 'type': 'numeric'}
+2024-08-30 12:55:26,588 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'Do', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MCnt', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MSpd', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MOcc', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'StdCnt', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'StdSpd', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'StdOcc', 'type': 'numeric'}
+2024-08-30 12:55:26,589 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'scoVarCc', 'type': 'numeric'}
+2024-08-30 12:55:26,590 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'scoVarCs', 'type': 'numeric'}
+2024-08-30 12:55:26,590 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'scoVarCo', 'type': 'numeric'}
+2024-08-30 12:55:26,590 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MLCnt', 'type': 'numeric'}
+2024-08-30 12:55:26,590 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MLSpd', 'type': 'numeric'}
+2024-08-30 12:55:26,590 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'MLOcc', 'type': 'numeric'}
+2024-08-30 12:55:26,591 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'LstdCnt', 'type': 'numeric'}
+2024-08-30 12:55:26,591 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'LstdSpd', 'type': 'numeric'}
+2024-08-30 12:55:26,591 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'LstdOcc', 'type': 'numeric'}
+2024-08-30 12:55:26,591 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'visibility', 'type': 'categorical'}
+2024-08-30 12:55:26,595 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'weather', 'type': 'categorical'}
+2024-08-30 12:55:26,597 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'truckcol', 'type': 'categorical'}
+2024-08-30 12:55:26,600 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'ramp', 'type': 'categorical'}
+2024-08-30 12:55:26,602 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'roadsurf', 'type': 'categorical'}
+2024-08-30 12:55:26,604 P100392 INFO Processing column: {'active': True, 'dtype': 'float', 'name': 'lighting', 'type': 'categorical'}
+2024-08-30 12:55:26,607 P100392 INFO Set column index...
+2024-08-30 12:55:26,607 P100392 INFO Pickle feature_encode: ../../data/JAT-T4-2-1\feature_processor.pkl
+2024-08-30 12:55:26,610 P100392 INFO Save feature_vocab to json: ../../data/JAT-T4-2-1\feature_vocab.json
+2024-08-30 12:55:26,611 P100392 INFO Save feature_map to json: ../../data/JAT-T4-2-1\feature_map.json
+2024-08-30 12:55:26,614 P100392 INFO Set feature processor done.
+2024-08-30 12:55:26,707 P100392 INFO Preprocess feature columns...
+2024-08-30 12:55:26,799 P100392 INFO Preprocess feature columns...
+2024-08-30 12:55:26,892 P100392 INFO Transform csv data to h5 done.
+2024-08-30 12:55:26,903 P100392 INFO Load feature_map from json: ../../data/JAT-T4-2-1\feature_map.json
+2024-08-30 12:55:26,904 P100392 INFO Set column index...
+2024-08-30 12:55:26,904 P100392 INFO Feature specs: {
+    "Dc": "{'source': '', 'type': 'numeric'}",
+    "Do": "{'source': '', 'type': 'numeric'}",
+    "Ds": "{'source': '', 'type': 'numeric'}",
+    "LstdCnt": "{'source': '', 'type': 'numeric'}",
+    "LstdOcc": "{'source': '', 'type': 'numeric'}",
+    "LstdSpd": "{'source': '', 'type': 'numeric'}",
+    "MCnt": "{'source': '', 'type': 'numeric'}",
+    "MLCnt": "{'source': '', 'type': 'numeric'}",
+    "MLOcc": "{'source': '', 'type': 'numeric'}",
+    "MLSpd": "{'source': '', 'type': 'numeric'}",
+    "MOcc": "{'source': '', 'type': 'numeric'}",
+    "MSpd": "{'source': '', 'type': 'numeric'}",
+    "StdCnt": "{'source': '', 'type': 'numeric'}",
+    "StdOcc": "{'source': '', 'type': 'numeric'}",
+    "StdSpd": "{'source': '', 'type': 'numeric'}",
+    "correlation": "{'source': '', 'type': 'numeric'}",
+    "inner_shoulder_width": "{'source': '', 'type': 'numeric'}",
+    "lane_width": "{'source': '', 'type': 'numeric'}",
+    "lighting": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 3, 'vocab_size': 4}",
+    "outer_shoulder_width": "{'source': '', 'type': 'numeric'}",
+    "ramp": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 3, 'vocab_size': 4}",
+    "roadsurf": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 3, 'vocab_size': 4}",
+    "scoVarCc": "{'source': '', 'type': 'numeric'}",
+    "scoVarCo": "{'source': '', 'type': 'numeric'}",
+    "scoVarCs": "{'source': '', 'type': 'numeric'}",
+    "truckcol": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 3, 'vocab_size': 4}",
+    "visibility": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 21, 'vocab_size': 22}",
+    "weather": "{'source': '', 'type': 'categorical', 'padding_idx': 0, 'oov_idx': 3, 'vocab_size': 4}"
+}
+2024-08-30 12:55:28,262 P100392 INFO NVIDIA GeForce RTX 3050 Laptop GPU
+2024-08-30 12:55:28,262 P100392 INFO NVIDIA GeForce RTX 3050 Laptop GPU
+2024-08-30 12:55:28,397 P100392 INFO Total number of parameters: 1401108.
+2024-08-30 12:56:20,754 P100392 INFO Preprocess feature columns...
+2024-08-30 12:56:20,763 P100392 INFO Preprocess feature columns...
+2024-08-30 12:56:20,771 P100392 INFO Transform feature columns...
+2024-08-30 12:56:20,797 P100392 INFO Transform feature columns...
+2024-08-30 12:56:20,806 P100392 INFO Saving data to h5: ../../data/JAT-T4-2-1\train.h5
+2024-08-30 12:56:20,847 P100392 INFO Saving data to h5: ../../data/JAT-T4-2-1\valid.h5
+2024-08-30 12:56:20,870 P100392 INFO Loading data...
+2024-08-30 12:56:20,870 P100392 INFO Loading data from h5: ../../data/JAT-T4-2-1\train.h5
+2024-08-30 12:56:20,900 P100392 INFO Train samples: total/20458, blocks/1
+2024-08-30 12:56:20,900 P100392 INFO Loading data from h5: ../../data/JAT-T4-2-1\valid.h5
+2024-08-30 12:56:20,921 P100392 INFO Validation samples: total/5844, blocks/1
+2024-08-30 12:56:20,922 P100392 INFO Loading train and validation data done.
+2024-08-30 12:56:20,923 P100392 INFO Start training: 2045 batches/epoch
+2024-08-30 12:56:20,923 P100392 INFO ************ Epoch=1 start ************
+2024-08-30 12:58:45,948 P100392 INFO Train loss: 0.011687
+2024-08-30 12:58:45,948 P100392 INFO Evaluation @epoch 1 - batch 2045: 
+2024-08-30 12:59:03,844 P100392 INFO ===
+2024-08-30 12:59:03,844 P100392 INFO [Metrics] AUC: 0.689267
+2024-08-30 12:59:03,845 P100392 INFO Save best model: monitor(max)=0.689267
+2024-08-30 12:59:03,885 P100392 INFO ************ Epoch=1 end ************
+2024-08-30 13:01:37,973 P100392 INFO Train loss: 0.010215
+2024-08-30 13:01:37,973 P100392 INFO Evaluation @epoch 2 - batch 2045: 
+2024-08-30 13:01:55,483 P100392 INFO ===
+2024-08-30 13:01:55,484 P100392 INFO [Metrics] AUC: 0.686818
+2024-08-30 13:01:55,484 P100392 INFO Monitor(max)=0.686818 STOP!
+2024-08-30 13:01:55,484 P100392 INFO Reduce learning rate on plateau: 0.000100
+2024-08-30 13:01:55,486 P100392 INFO ************ Epoch=2 end ************
+2024-08-30 13:04:28,479 P100392 INFO Train loss: 0.009801
+2024-08-30 13:04:28,481 P100392 INFO Evaluation @epoch 3 - batch 2045: 
+2024-08-30 13:04:46,268 P100392 INFO ===
+2024-08-30 13:04:46,269 P100392 INFO [Metrics] AUC: 0.710809
+2024-08-30 13:04:46,269 P100392 INFO Save best model: monitor(max)=0.710809
+2024-08-30 13:04:46,298 P100392 INFO ************ Epoch=3 end ************

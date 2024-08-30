@@ -1,0 +1,424 @@
+MMoE_test_001_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_002_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_003_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_004_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_005_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_006_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_007_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1
+MMoE_test_008_64633939:
+    batch_norm: true
+    batch_size: 10
+    dataset_id: SAT-T1_42840306
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_dim: 10
+    embedding_regularizer: 0
+    embedding_share: false
+    epochs: 100
+    eval_steps: null
+    expert_hidden_units: [400, 500]
+    feature_config: null
+    feature_specs: null
+    gate_embedding_dim: [10]
+    gate_hidden_activations: relu
+    gate_hidden_units: [128, 64]
+    gate_net_dropout: [0.2]
+    gate_use_field_gate: false
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy]
+    metrics: [logloss, f1_score, Sensitivity, Specificity, AUC]
+    model: MMoE
+    model_id: MMoE_test
+    model_list: [MLP, X]
+    model_root: ./checkpoints/
+    monitor: {AUC: 1}
+    monitor_mode: max
+    net_dropout: [0.1]
+    net_regularizer: 0
+    num_experts: 3
+    num_tasks: 1
+    num_workers: 0
+    optim: true
+    optimizer: adam
+    pickle_feature_encoder: true
+    resample: balance
+    residual_type: concat
+    result_record: [expert_hidden_units]
+    save_best_only: true
+    seed: 2024
+    shap: 0
+    shuffle: true
+    task: [binary_classification]
+    tower_hidden_activations: [relu]
+    tower_hidden_units:
+    - [128, 64]
+    tower_net_dropout: [0]
+    use_features: null
+    use_field_gate: [true, true, true]
+    verbose: 1

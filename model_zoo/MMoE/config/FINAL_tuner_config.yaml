@@ -1,0 +1,85 @@
+base_config: ./config/
+base_expid: MMoE_test
+dataset_id: SAT-T1
+
+tuner_space:
+    model_list              : [['MLP', 'X']]
+                                # ['MLP', 'L'], ['MLP', 'X'], ['L', 'L'], ['X', 'X'], ['MLP'], ['L'], ['X'], ['RF'], ['SVC']
+    learning_rate           : [0.001]
+    embedding_regularizer   : [0]
+    net_regularizer         : [0]
+    batch_size              : [
+        # 128 # JAT-T3
+        # 10  # JAT-T2
+        # 10  # SAT-T1
+        # 10  # JAT-T4
+        10
+    ]
+    batch_norm              : [
+        # True # JAT-T4
+        True
+    ]
+
+    num_experts             : [3]
+    embedding_dim           : [
+        # [16, 16, 16] # JAT-T3
+        # [10, 10, 10] # JAT-T2
+        # [10, 10, 10] # SAT-T1
+        # [10, 10, 10] # JAT-T4
+        10
+    ]
+    use_field_gate          : [
+        # [True, False, False] # JAT-T3
+         [True, True, True]   # JAT-T2
+        # [True, True, True]   # SAT-T1
+        # [True, True, False]  # JAT-T4
+    ]
+
+    resample                : ['balance'] # 'balance', 'over', 'lower'
+    expert_hidden_units     : [
+        # [512, 512]    # JAT-T3
+        # [64, 64]      # JAT-T2
+         [400, 500]    # SAT-T1-balance
+        # [400, 512]    # SAT-T1-lower
+        # [400]         # SAT-T1-over
+        # [400, 400]    # JAT-T4-balance
+        # [64, 64]      # JAT-T4-2-1 balance
+        # [512, 800]    # JAT-T4-2-1 lower
+        # [800]         # JAT-T4-2-1 over
+        # [64, 256]     # JAT-T4-2-2 balance
+        # [500, 800]    # JAT-T4-2-2 lower
+        # [128, 256]    # JAT-T4-2-2 over
+    ]
+    net_dropout             : [
+        [0.1],
+    ]
+    hidden_activations      : [relu]
+
+    num_tasks               : [1]
+    gate_embedding_dim      : [[10]]
+    gate_use_field_gate     : [False]
+    gate_hidden_units       : [[128, 64]]
+    gate_net_dropout        : [[0.2]]
+    gate_hidden_activations : [relu]
+
+    tower_hidden_units      : [[[128, 64]]]
+    tower_net_dropout       : [[0]]
+    tower_hidden_activations: [[relu]]
+
+    residual_type           : [concat]
+    epochs                  : [100]
+    shuffle                 : [True]
+    seed                    : [2024]
+    monitor                 : [{'AUC': 1}]
+    monitor_mode            : ['max']
+    embedding_share         : [False]
+
+    shap                    : [0]
+    optim                   : [True]
+    result_record           : [
+        ['expert_hidden_units'], ['expert_hidden_units'],
+        ['expert_hidden_units'], ['expert_hidden_units'],
+        ['expert_hidden_units'], ['expert_hidden_units'],
+        ['expert_hidden_units'], ['expert_hidden_units'],
+    ]
+

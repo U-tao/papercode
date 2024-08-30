@@ -1,0 +1,192 @@
+
+# 二次事故 domestic 数据集 : 论文主数据集-1
+SAT-T1:  # 相比SAT，删除了十一个特征
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            duration, kilometer_section, number_injured, number_death, number_car,
+            number_lanes, number_passable_lanes, number_lanes_ccupancy, rate_occupancy
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            weekend, time_period, unit, high_speed_ID, sections, begin, end, rear-end, roll_over, crash_central_guardrail,
+            crash_dege_guardrail, flat_tires, hit_pedestrians, scratch, lane_emergency, left_lane_first,
+            left_lane_second, left_lane_third, left_lane_forth, right_lane, weather, is_tunnel, is_bridge,
+            is_special_point, is_emergency_lane_ccupancy, Car, car_passenger, truck, Van, crane,
+            Semi-trailers, vehicle_sport_utility, van_Business, ambulance, pickup_trucks, fuel_tankers
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_second_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/SAT-T1/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True # True False
+
+# 二次事故 foreign 数据集 : 论文主数据集-2
+JAT-T2: # 相比JAT，删除了三个特征
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            lane_width, inner_shoulder_width, outer_shoulder_width, correlation,
+            Dc, Ds, Do, MCnt, MSpd, MOcc, StdCnt, StdSpd, StdOcc, scoVarCc, scoVarCs,
+            scoVarCo, MLCnt, MLSpd, MLOcc, LstdCnt, LstdSpd, LstdOcc
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            is_serious, is_hit, is_sideway, read-end,
+            visibility, weather, truckcol, ramp, roadsurf, lighting
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_second_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/JAT-T2/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True
+
+# 二次事故 foreign 数据集 : 相对foreign JAT-T2, 去掉交通流特征
+JAT-T3: # 相比JAT，删除了3+19个特征
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            lane_width, inner_shoulder_width, outer_shoulder_width
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            is_serious, is_hit, is_sideway, read-end,
+            visibility, weather, truckcol, ramp, roadsurf, lighting
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_second_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/JAT-T3/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True
+
+# 事故数据集 foreign 数据集 ： 非事故的所有数据集
+JAT-crash:
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            traffic_density, lane_width, inner_shoulder_width, outer_shoulder_width, correlation,
+            Dc, Ds, Do, MCnt, MSpd, MOcc, StdCnt, StdSpd, StdOcc, scoVarCc, scoVarCs,
+            scoVarCo, MLCnt, MLSpd, MLOcc, LstdCnt, LstdSpd, LstdOcc
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            traffic_flow, service_level, is_serious, is_hit, is_sideway, read-end,
+            visibility, weather, truckcol, ramp, roadsurf, lighting
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/JAT-crash/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True
+
+# 事故数据集 foreign 数据集 ： 通过病例对照，按照1：1数据调整数据集（保留无分组的非事故样本）
+JAT-T4-2-1:
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            lane_width, inner_shoulder_width, outer_shoulder_width, correlation,
+            Dc, Ds, Do, MCnt, MSpd, MOcc, StdCnt, StdSpd, StdOcc, scoVarCc, scoVarCs,
+            scoVarCo, MLCnt, MLSpd, MLOcc, LstdCnt, LstdSpd, LstdOcc
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            visibility, weather, truckcol, ramp, roadsurf, lighting
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/JAT-T4-2-1/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True
+
+# 事故数据集 foreign 数据集 ： 通过病例对照，按照1：1数据调整数据集
+JAT-T4-2-2:
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            lane_width, inner_shoulder_width, outer_shoulder_width, correlation,
+            Dc, Ds, Do, MCnt, MSpd, MOcc, StdCnt, StdSpd, StdOcc, scoVarCc, scoVarCs,
+            scoVarCo, MLCnt, MLSpd, MLOcc, LstdCnt, LstdSpd, LstdOcc
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            visibility, weather, truckcol, ramp, roadsurf, lighting
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/JAT-T4-2-2/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True
+
+# 特征名称调整
+SAT-T1-ft:  # 相比SAT，删除了十一个特征
+    data_format             : csv
+    data_root               : ../../data/
+    feature_cols:
+    -   active          : true
+        dtype           : float
+        name            : [
+            Cd, Ks, Ni, Nd, Nv, Tl, Na, Nc, Po
+        ]
+        type            : numeric
+    -   active          : true
+        dtype           : float
+        name            : [
+            Wd, Li, Un, Rd, Sc, Bg, Ed, Re, Ro, Hc, Hd, Ft, Hp, Ss, Eo, L1, L2, L3, L4, R1, Ip, Le,
+            Ic, Np, Tr, Va, Cr, We, Tu, Br, St, Vu, Vb, Ab, Pt, Sf,
+        ]
+        type            : categorical
+    label_col               : {dtype: float, name: is_second_accident}
+    min_categr_count        : 1
+
+    source_data             : ../../data/SAT-T1-ft/source.csv
+    valid_size              : 0.2
+    test_size               : 0.1
+    data_regen              : True # True False
