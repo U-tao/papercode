@@ -1,7 +1,3 @@
-
-
-
-
-# 忽略data文件
-/data/
-/model_zoo/
+data/*/  
+!data/test/
+!data/.gitignore
